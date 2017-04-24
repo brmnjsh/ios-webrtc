@@ -1,0 +1,159 @@
+<body>
+  {{> consultancy_meeting}}
+</body>
+
+<template name="consultancy_meeting">
+  <div id="content-body">
+    <div class="col-sm-12">
+      
+      <div class="task-consultancy-meeting" data-user-role="2" data-user-id="2" data-user="Josh Burman" data-user-image="" data-attendee-type="Chair" data-task-start="In progress" data-user-sendbird-nickname="Josh.Burman" data-sendbird-channel="sendbird_group_channel_434F19D5-92F4-4E2D-9BB3-E7B6F7E509A3_38b97fa953448530d607506633ec268917bbdbb3" data-users-id="[2,3,4]" data-chair-id="2" data-task-type="2" data-task-presentation="big-o-cheatsheet.pdf" data-task-document="https://purdueportal.2gendev.net/my-tasks/12/agreement/presentation">
+
+        <div class="col-sm-12">
+          <h2>My Tasks<small>Test Task (Consultancy Meeting)</small></h2>
+        </div>
+        <div class="col-sm-12">
+          <p>Thank you for your participation in this Consultancy Meeting. The meeting is currently in session.</p>
+        </div>
+
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <div class="module" id="pdf-display">
+                <div class="utility-bar text-right">
+                  <a title="Refresh Task Presentation" class="refresh-button" href="#">Refresh</a>
+                  <a title="Collapse Task Presentation" class="minimize-button" href="#">Minimize</a>
+                  <a title="Expand Task Presentation" class="maximize-button" href="#">Maximize</a>
+                </div>
+                <div class="presentation-wrap">
+                  <canvas id="pdf-canvas"></canvas>
+                </div>
+                <div class="pdf-btns">
+                  <a href="#" class="pdf-zoom-btn" data-toggle="modal" data-target="#modal-large-presentation">
+                    <span class="glyphicon glyphicon-zoom-in"></span>
+                  </a>
+                  <!-- @if ($task->pivot->attendee_type == 'Chair') -->
+                  <a href="#" class="pdf-prev-btn">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a href="#" class="pdf-next-btn">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+                  <!-- <button id="pdf-next">Next page</button> -->
+                  <!-- @endif -->
+                </div>
+                <audio id="audio" controls></audio>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="module" id="consultancy-chat-box">
+            <div class="utility-bar text-right">
+              <a title="Refresh Task Chat" class="refresh-button" href="#">Refresh</a>
+              <a title="Collapse Task Chat" class="minimize-button" href="#">Minimize</a>
+              <a title="Expand Task Chat" class="maximize-button" href="#">Maximize</a>
+            </div>
+            <div class="chat-box">
+              <div class="col-sm-12">
+                <div class="chat-contents">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                      <h2 id="chat-header" class="chat-headers">Consultancy Meeting in Session</h2>
+                      <div class="chat-areas chat-text-content-area">
+                        <div id="chat-text-area"></div>
+                        <div id="chat-text-button" class="chat-btn-area">
+                          <input class="form-control chat-txt" id="chat-text-content" type="text" placeholder="Type a message">
+                          <a class="btn btn-default btn-block chat-btn" href="#" id="chat-text-btn" title="Send a message to an RPM Leaders' Community contact">Send</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-7">
+<!--           @if ($task->conference_number_local != '' || $task->conference_number_international != '' || $task->participant_number != '')
+          <div class="module" id="conference-call-details">
+            <div class="utility-bar text-right">
+              <a title="Refresh Task Agenda" class="refresh-button" href="#">Refresh</a>
+              <a title="Collapse Task Agenda" class="minimize-button" href="#">Minimize</a>
+              <a title="Expand Task Agenda" class="maximize-button" href="#">Maximize</a>
+            </div>
+            <h3 class="header">{{ trans('task.copy-conference') }}</h3>
+            <div class="module-content">
+              <div class="row">
+                <div class="col-sm-12"><strong>{{ trans('task.copy-local') }}</strong>{{ $task->conference_number_local}}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12"><strong>{{ trans('task.copy-international') }}</strong>{{ $task->conference_number_international}}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12"><strong>{{ trans('task.copy-participant-number') }}</strong>{{ $task->participant_number}}</div>
+              </div>
+            </div>
+          </div>
+          @endif
+          <div class="module" id="agenda">
+            <div class="utility-bar text-right">
+              <a title="Refresh Task Agenda" class="refresh-button" href="#">Refresh</a>
+              <a title="Collapse Task Agenda" class="minimize-button" href="#">Minimize</a>
+              <a title="Expand Task Agenda" class="maximize-button" href="#">Maximize</a>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>{{ trans('task.copy-agenda') }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{!! str_replace("\n","<br>",$task->agenda) !!}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+        </div>
+
+        <div class="col-sm-5">
+          <div class="module" id="consultancy-chat-users">
+            <div class="utility-bar text-right">
+              <a title="Refresh Task Attendees" class="refresh-button" href="#">Refresh</a>
+              <a title="Collapse Task Attendees" class="minimize-button" href="#">Minimize</a>
+              <a title="Expand Task Attendees" class="maximize-button" href="#">Maximize</a>
+            </div>
+            <div class="chat-box">
+              <div class="col-sm-12">
+                <div class="chat-contents">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                      <h2 id="conversation-header" class="chat-headers">Atendees</h2>
+                      <div class="chat-areas chat-user-list-area">
+                        <div id="chat-user-list"></div>
+                        <div id="chat-user-button" class="chat-btn-area">
+                          <a class="btn btn-default btn-block chat-btn" href="#" title=""></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <script>
+
+
+  </script>
+</template>
+
